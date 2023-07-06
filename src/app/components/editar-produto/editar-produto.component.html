@@ -1,0 +1,91 @@
+<div>
+    <div *ngIf="produto.id" class="edit-form">
+      <h4>Produto</h4>
+      <form>
+      <div class="form-group">
+        <label for="produto">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          required
+          [(ngModel)]="produto.nome"
+          name="nome"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="descricao">Descricao</label>
+        <input
+          type="text"
+          class="form-control"
+          id="descricao"
+          required
+          [(ngModel)]="produto.descricao"
+          name="descricao"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="barras">Quantia em Estoque</label>
+        <input
+          type="text"
+          class="form-control"
+          id="estoque"
+          required
+          [(ngModel)]="produto.estoque"
+          name="estoque"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="quantidadeEstoque">Preço</label>
+        <input
+          type="text"
+          class="form-control"
+          id="preco"
+          required
+          [(ngModel)]="produto.preco"
+          name="preco"
+        />
+      </div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Categoria</mat-label>
+        <mat-select [(ngModel)]="produto.categoria" name="categoria" [(value)]="selectedCategoria">
+            <mat-option *ngFor="let categoria of categoriaCollection"  [value]="categoria">
+            {{categoria.nome}}
+            </mat-option>
+        </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Fornecedor</mat-label>
+            <mat-select [(ngModel)]="produto.fornecedor" name="fornecedor" [(value)]="selectedFornecedor">
+                <mat-option *ngFor="let fornecedor of fornecedorCollection"  [value]="fornecedor">
+                {{fornecedor.nome}}
+                </mat-option>
+            </mat-select>
+            </mat-form-field>
+
+      </form>
+
+      <button class="badge badge-danger mr-2" (click)="deleteProduto(produto.id)">
+        Excluir
+      </button>
+
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateProduto(produto.id,produto)"
+      >
+        Gravar
+      </button>
+      <p>{{ message }}</p>
+    </div>
+
+    <div *ngIf="!produto.id">
+      <br />
+      <p>Não foi possível carregar essa entidade de Produto...</p>
+    </div>
+  </div>

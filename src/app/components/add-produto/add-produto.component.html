@@ -1,0 +1,80 @@
+<div>
+    <div class="submit-form">
+      <div>
+        <mat-form-field>
+          <input
+          matInput
+          placeholder="nome"
+            type="text"
+            id="produto"
+            required
+            [(ngModel)]="produto.nome"
+            name="nome"
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+          matInput
+          placeholder="Descricao"
+            type="text"
+            id="descricao"
+            required
+            [(ngModel)]="produto.descricao"
+            name="descricao"
+          />
+        </mat-form-field>
+  
+  
+        <mat-form-field>
+          <input
+          matInput
+          placeholder="Preco"
+            type="number"
+            id="preco"
+            required
+            [(ngModel)]="produto.preco"
+            name="preco"
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+          matInput
+          placeholder="Estoque"
+            type="number"
+            id="estoque"
+            required
+            [(ngModel)]="produto.estoque"
+            name="estoque"
+          />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+            <mat-label>Categoria</mat-label>
+            <mat-select [(ngModel)]="produto.categoria" [(value)]="selectedCategoria">
+                <mat-option *ngFor="let categoria of categoriaCollection"  [value]="categoria">
+                {{categoria.nome}}
+                </mat-option>
+            </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field appearance="fill">
+                <mat-label>Fornecedor</mat-label>
+                <mat-select [(ngModel)]="produto.fornecedor" [(value)]="selectedFornecedor">
+                    <mat-option *ngFor="let fornecedor of fornecedorCollection"  [value]="fornecedor">
+                    {{fornecedor.nome}}
+                    </mat-option>
+                </mat-select>
+                </mat-form-field>
+
+  
+        
+  
+        <button (click)="saveProduto()" class="btn btn-success">Gravar</button>
+  
+      </div>
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,154 @@
+<div class="col-md-8">
+    <br>
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Procurar por Descricao"
+        [(ngModel)]="descricao"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchDescricao()"
+        >
+          Procurar
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <div infiniteScroll
+      (scrolled)="onScroll()">
+      <h4 *ngIf="!estaCarregandoSpinner">Lista de Categorias</h4>
+      <mat-spinner *ngIf="estaCarregandoSpinner"></mat-spinner>
+    <div *ngFor="let categoria of CategoriaCollection; let i = index" charset="UTF-8" >
+      <mat-card [class.active]="i == currentIndex" class=".is-focusable" routerLink="/detalhescategoria/{{ categoria.id }}">
+        <mat-card-title  
+          >Nome da Categoria
+          <div class="dots">
+            <!-- <button
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example icon-button with a menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu  #menu="matMenu">
+              <button mat-menu-categoria routerLink="/whatsapp/{{ categoria.id }}">
+                <mat-icon>share</mat-icon>
+                <span>Compartilhar</span>
+              </button>
+              <button mat-menu-categoria (click)="setActiveCategoria(categoria, i)">
+                <mat-icon>visibility</mat-icon>
+                <span>Detalhes</span>
+              </button>
+              <button mat-menu-categoria routerLink="/image/{{ categoria.id }}">
+                <mat-icon>image</mat-icon>
+                <span>Imagem</span>
+              </button>
+              <button mat-menu-categoria routerLink="/add/image/{{ categoria.id }}">
+                <mat-icon>image</mat-icon>
+                <span>Adicionar Imagem</span>
+              </button>
+              <button mat-menu-categoria (click)="deleteCategoria(categoria)">
+                <mat-icon>delete_forever</mat-icon>
+                <span>Deletar</span>
+              </button>
+            </mat-menu> -->
+          </div>
+        </mat-card-title>
+        <mat-card-subtitle><b>{{ categoria.nome }}</b></mat-card-subtitle>
+        
+        <mat-card-actions> </mat-card-actions>
+      </mat-card> 
+      <br/>
+    </div>
+  </div>
+  
+  <!-- <div class="list row" charset="UTF-8" >
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Procurar por Descricao"
+          [(ngModel)]="descricao"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchDescricao()"
+          >
+            Procurar
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-md-6" charset="UTF-8" >
+      <h4 *ngIf="!estaCarregandoSpinner">Lista de Itens</h4>
+      <mat-spinner *ngIf="estaCarregandoSpinner"></mat-spinner>
+      <div  *ngIf="!estaCarregandoSpinner" >
+      <div infiniteScroll
+      (scrolled)="onScroll()">
+        <div *ngFor="let categoria of CategoriaCollection; let i = index" charset="UTF-8" >
+          <p>ola</p>
+          <mat-card [class.active]="i == currentIndex" class=".is-focusable" routerLink="/detalhescategoria/{{ categoria.id }}">
+            <mat-card-title  
+              >{{ categoria.descricao }}
+              <div class="dots">
+                <button
+                  mat-icon-button
+                  [matMenuTriggerFor]="menu"
+                  aria-label="Example icon-button with a menu"
+                >
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu  #menu="matMenu">
+                  <button mat-menu-categoria routerLink="/whatsapp/{{ categoria.id }}">
+                    <mat-icon>share</mat-icon>
+                    <span>Compartilhar</span>
+                  </button>
+                  <button mat-menu-categoria (click)="setActiveCategoria(categoria, i)">
+                    <mat-icon>visibility</mat-icon>
+                    <span>Detalhes</span>
+                  </button>
+                  <button mat-menu-categoria routerLink="/image/{{ categoria.id }}">
+                    <mat-icon>image</mat-icon>
+                    <span>Imagem</span>
+                  </button>
+                  <button mat-menu-categoria routerLink="/add/image/{{ categoria.id }}">
+                    <mat-icon>image</mat-icon>
+                    <span>Adicionar Imagem</span>
+                  </button>
+                  <button mat-menu-categoria (click)="deleteCategoria(categoria)">
+                    <mat-icon>delete_forever</mat-icon>
+                    <span>Deletar</span>
+                  </button>
+                </mat-menu>
+              </div>
+            </mat-card-title>
+            <mat-card-subtitle>{{ categoria.parceiro?.nome }}</mat-card-subtitle>
+            <mat-card-content>
+              {{ categoria.barras }}
+            </mat-card-content>
+            <mat-card-actions> </mat-card-actions>
+          </mat-card> 
+          <br />
+        </div>
+      </div>
+      </div>
+      <mat-paginator
+        [length]="1000"
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        (page)="OnPageChange($event)"
+        aria-label="Select page"
+      >
+      </mat-paginator> 
+    </div>
+  </div>
+  -->

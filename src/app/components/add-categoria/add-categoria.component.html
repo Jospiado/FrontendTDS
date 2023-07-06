@@ -1,0 +1,22 @@
+<div>
+    <div class="submit-form">
+      <div>
+        <mat-form-field>
+          <input
+          matInput
+          placeholder="nome"
+            type="text"
+            id="categoria"
+            required
+            [(ngModel)]="categoria.nome"
+            name="nome"
+          />
+        </mat-form-field>
+  
+        <button (click)="saveCategoria()" class="btn btn-success">Gravar</button>
+  
+      </div>
+    </div>
+  </div>
+  
+  

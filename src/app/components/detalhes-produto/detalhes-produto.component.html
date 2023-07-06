@@ -1,0 +1,58 @@
+<div>
+    <br>
+    <button  class="btn btn-primary" routerLink="/produtos">
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+  </div>
+  <br>
+  <div class="col-md-6">
+      <div *ngIf="produto.id">
+        <h4>Produto</h4>
+        <div>
+          <label><strong>Nome:</strong></label> {{ produto.nome }}
+        </div>
+        <div>
+          <label><strong>Descricao:</strong></label> {{ produto.descricao }}
+        </div>
+        <div>
+          <label><strong>Preço:</strong></label> {{ produto.preco }}
+        </div>
+        <div>
+          <label><strong>Estoque:</strong></label>
+          {{ produto.estoque }}
+        </div>
+        <div>
+          <label><strong>Categoria:</strong></label> {{ produto.categoria?.nome }}
+        </div>
+        <div>
+          <label><strong>Fornecedor:</strong></label>
+          {{ produto.fornecedor?.nome }}
+        </div>
+        <!-- <div>
+          <label><strong>Imagensdoproduto:</strong></label>
+          <img src="{{ produto.imagensdoproduto }}" width="300" />
+        </div>
+        <div for="produto.parceiro">
+          <label><strong>ParceiroDoproduto:</strong></label>
+          {{ produto.parceiro }}
+        </div> -->
+  
+        <a class="badge badge-warning" routerLink="/produtos/{{ produto.id }}">
+          Editar
+        </a>
+        <a class="badge badge-warning" routerLink="/whatsapp/{{ produto.id }}">
+          Compartilhar Whatsapp
+        </a>
+        <!-- <a class="badge badge-warning" routerLink="/image/{{ produto.id }}">
+          Visualizar Imagens
+        </a>
+        <a class="badge badge-warning" routerLink="/buscaIndividualizada/{{ produto.id }}">
+          Busca Individual
+        </a> -->
+      </div>
+  
+      <div *ngIf="!produto">
+        <br />
+        <p>Por favor selecione uma linha da lista de produto...</p>
+      </div>
+    </div>

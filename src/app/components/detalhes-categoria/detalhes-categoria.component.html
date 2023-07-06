@@ -1,0 +1,42 @@
+<div>
+    <br>
+    <button  class="btn btn-primary" routerLink="/categorias">
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+  </div>
+  <br>
+  <div class="col-md-6">
+      <div *ngIf="categoria.id">
+        <h4>Categoria</h4>
+        <div>
+          <label><strong>Nome:</strong></label> {{ categoria.nome }}
+        </div>
+       
+        <!-- <div>
+          <label><strong>Imagensdocategoria:</strong></label>
+          <img src="{{ categoria.imagensdocategoria }}" width="300" />
+        </div>
+        <div for="categoria.parceiro">
+          <label><strong>ParceiroDocategoria:</strong></label>
+          {{ categoria.parceiro }}
+        </div> -->
+  
+        <a class="badge badge-warning" routerLink="/categorias/{{ categoria.id }}">
+          Editar
+        </a>
+        <!-- <a class="badge badge-warning" routerLink="/whatsapp/{{ categoria.id }}">
+          Compartilhar Whatsapp
+        </a>
+        <a class="badge badge-warning" routerLink="/image/{{ categoria.id }}">
+          Visualizar Imagens
+        </a>
+        <a class="badge badge-warning" routerLink="/buscaIndividualizada/{{ categoria.id }}">
+          Busca Individual
+        </a> -->
+      </div>
+  
+      <div *ngIf="!categoria">
+        <br />
+        <p>Por favor selecione uma linha da lista de categoria...</p>
+      </div>
+    </div>

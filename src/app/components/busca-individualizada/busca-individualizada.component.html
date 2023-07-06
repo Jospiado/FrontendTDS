@@ -1,0 +1,31 @@
+<div>
+    <div class="submit-form">
+      <div>
+        <mat-form-field>
+          <input
+          matInput
+          placeholder="Nome, codigo ou parametro da busca de imagens"
+            type="text"
+            id="link"
+            required
+            [(ngModel)]="parametroBusca"
+            name="link"
+          />
+        </mat-form-field>
+ 
+        <mat-form-field appearance="fill">
+          <mat-label>Configuração a ser utilizada</mat-label>
+          <mat-select [(ngModel)]="confBusca" [(value)]="selected">
+              <mat-option *ngFor="let configuracao of configuracaoCollection"  [value]="configuracao">
+              {{configuracao.descricao}}
+              </mat-option>
+          </mat-select>
+          </mat-form-field>
+  
+        <button (click)="fazerBusca()" class="btn btn-success">Buscar</button>
+  
+      </div>
+    </div>
+  </div>
+  
+    

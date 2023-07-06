@@ -1,0 +1,44 @@
+<div>
+  <br>
+  <button  class="btn btn-primary" routerLink="/detalhesproduto/{{produto.id}}">
+    <mat-icon>keyboard_backspace</mat-icon>
+  </button>
+</div>
+<br>
+<div>
+    <div class="moldura-dois">
+        <div *ngIf="produto.id">
+          <h4>Dados a serem enviados</h4>
+          <div>
+            <label><strong>Descrição:</strong></label> {{ produto.descricao }}
+          </div>
+          <div>
+            <label><strong>Código:</strong></label> {{ produto.id }}
+          </div>
+          <div>
+            <label><strong>Preço:</strong></label> R$ {{ produto.preco }}
+          </div>
+          <div>
+            <label><strong>Categoria:</strong></label> {{ produto.categoria?.nome }}
+          </div>
+    </div>
+</div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <mat-form-field>
+          <input
+          matInput
+          placeholder="(xx)xxxxx-xxxx"
+            type="tel"
+            id="numero"
+            required
+            [(ngModel)]="numero"
+            name="numero"
+          />
+        </mat-form-field>    
+        <a class="btn btn-success" (click)="enviarMensagem(produto,numero)">Contate-nos pelo Whatsapp</a>
+
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,53 @@
+<nav>
+<mat-sidenav-container class="sidenav-container"> 
+  <mat-sidenav #drawer class="sidenav" fixedInViewport 
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" 
+      [mode]="(isHandset$ | async) ? 'over' : 'side'" 
+      [opened]="(isHandset$ | async) === false"> 
+      <div  *ngIf="mostrarMenu">
+    <mat-toolbar >Menu</mat-toolbar> 
+    <mat-nav-list >
+      <a mat-list-item routerLink="produtos" (click)="MudarTitulo('Produtos')">Produtos</a> 
+      <a mat-list-item routerLink="fornecedores" (click)="MudarTitulo('Fornecedores')">Fornecedores</a> 
+      <a mat-list-item routerLink="categorias" (click)="MudarTitulo('Categorias')">Categorias</a> 
+    </mat-nav-list>
+  </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="toolbar">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>{{ title }}</span>
+    </mat-toolbar>
+    <div class="fix"></div>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+<div  *ngIf="mostrarMenu" class="fix">
+<mat-toolbar class="toolbarNav">
+  <button mat-flat-button routerLinkActive="active-link" routerLink="" (click)="MudarTitulo('Loja de Presentes')">
+    <mat-icon class="material-icons color_blue">
+      home_border</mat-icon>
+  </button>
+    <button mat-button [matMenuTriggerFor]="menu"
+    mat-flat-button routerLinkActive="active-link" ><mat-icon class="addButton" id="mat-icon">add_border
+    </mat-icon></button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/add/produto" (click)="MudarTitulo('Cadastrar Produto')">Produtos</button>
+  <button mat-menu-item routerLink="/add/fornecedor" (click)="MudarTitulo('Cadastrar Fornecedor')">Fornecedores</button>
+  <button mat-menu-item routerLink="/add/categoria" (click)="MudarTitulo('Cadastrar Categoria')">Categorias</button>
+</mat-menu>
+  <button mat-flat-button routerLink="/history" routerLinkActive="active-link">
+    <mat-icon class="material-icons color_blue">assignment_turned_in_border</mat-icon>
+  </button>
+</mat-toolbar>
+</div> 
+</nav>

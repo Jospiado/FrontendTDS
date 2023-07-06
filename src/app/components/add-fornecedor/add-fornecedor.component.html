@@ -1,0 +1,60 @@
+<div>
+    <div class="submit-form">
+      <div>
+        <mat-form-field>
+          <input
+          matInput
+          placeholder="nome"
+            type="text"
+            id="fornecedor"
+            required
+            [(ngModel)]="fornecedor.nome"
+            name="nome"
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+          matInput
+          placeholder="Cnpj"
+            type="text"
+            id="cnpj"
+            required
+            [(ngModel)]="fornecedor.cnpj"
+            name="cnpj"
+          />
+        </mat-form-field>
+  
+  
+        <mat-form-field>
+          <input
+          matInput
+          placeholder="endereço"
+            type="text"
+            id="endereco"
+            required
+            [(ngModel)]="fornecedor.endereco"
+            name="endereco"
+          />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input
+          matInput
+          placeholder="Telefone"
+            type="text"
+            id="telefone"
+            required
+            [(ngModel)]="fornecedor.telefone"
+            name="telefone"
+          />
+        </mat-form-field>
+  
+  
+        <button (click)="saveFornecedor()" class="btn btn-success">Gravar</button>
+  
+      </div>
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,36 @@
+<div>
+    <div *ngIf="categoria.id" class="edit-form">
+      <h4>Categoria</h4>
+      <form>
+      <div class="form-group">
+        <label for="categoria">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          required
+          [(ngModel)]="categoria.nome"
+          name="nome"
+        />
+      </div>
+      </form>
+
+      <button class="badge badge-danger mr-2" (click)="deleteCategoria(categoria.id)">
+        Excluir
+      </button>
+
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateCategoria(categoria.id,categoria)"
+      >
+        Gravar
+      </button>
+      <p>{{ message }}</p>
+    </div>
+
+    <div *ngIf="!categoria.id">
+      <br />
+      <p>Não foi possível carregar essa entidade de Categoria...</p>
+    </div>
+  </div>

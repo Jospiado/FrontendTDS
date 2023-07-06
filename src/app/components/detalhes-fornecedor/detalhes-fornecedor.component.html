@@ -1,0 +1,51 @@
+<div>
+    <br>
+    <button  class="btn btn-primary" routerLink="/fornecedores">
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+  </div>
+  <br>
+  <div class="col-md-6">
+      <div *ngIf="fornecedor.id">
+        <h4>Fornecedor</h4>
+        <div>
+          <label><strong>Nome:</strong></label> {{ fornecedor.nome }}
+        </div>
+        <div>
+          <label><strong>Cnpj:</strong></label> {{ fornecedor.cnpj }}
+        </div>
+        <div>
+          <label><strong>Endereço:</strong></label> {{ fornecedor.endereco }}
+        </div>
+        <div>
+          <label><strong>Telefone:</strong></label>
+          {{ fornecedor.telefone }}
+        </div>
+        <!-- <div>
+          <label><strong>Imagensdofornecedor:</strong></label>
+          <img src="{{ fornecedor.imagensdofornecedor }}" width="300" />
+        </div>
+        <div for="fornecedor.parceiro">
+          <label><strong>ParceiroDofornecedor:</strong></label>
+          {{ fornecedor.parceiro }}
+        </div> -->
+  
+        <a class="badge badge-warning" routerLink="/fornecedores/{{ fornecedor.id }}">
+          Editar
+        </a>
+        <!-- <a class="badge badge-warning" routerLink="/whatsapp/{{ fornecedor.id }}">
+          Compartilhar Whatsapp
+        </a>
+        <a class="badge badge-warning" routerLink="/image/{{ fornecedor.id }}">
+          Visualizar Imagens
+        </a>
+        <a class="badge badge-warning" routerLink="/buscaIndividualizada/{{ fornecedor.id }}">
+          Busca Individual
+        </a> -->
+      </div>
+  
+      <div *ngIf="!fornecedor">
+        <br />
+        <p>Por favor selecione uma linha da lista de fornecedor...</p>
+      </div>
+    </div>
