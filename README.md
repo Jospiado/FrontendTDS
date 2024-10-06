@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
 
+## Description
+
+This is the frontend application, designed to interact with a backend API built with Java Spring. The Angular application serves as the user interface, while the Spring API handles business logic and data management. You can find the API repository [here](https://github.com/Jospiado/api-java-spring).
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to [http://localhost:4200/](http://localhost:4200/). The application will automatically reload if you change any of the source files.
@@ -21,6 +25,12 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Java Spring API Integration
+
+This frontend is intended to communicate with a Java Spring API. Ensure that the backend server is running before interacting with the frontend application. You can configure the API endpoint in the Angular environment settings.
+
+The Java Spring API repository can be found at [https://github.com/Jospiado/api-java-spring](https://github.com/Jospiado/api-java-spring).
 
 ## Further help
 
